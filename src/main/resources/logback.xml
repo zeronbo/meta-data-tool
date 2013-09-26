@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- 配置logback控制台日志输出 -->
+	<appender name="console_out" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<!-- 设置日志输出信息输出格式,如: "14:46:11.981 [main] INFO  com.wksc.rp.test.TestLog - Test Logback INFO" -->
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{100} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<!-- 控制日志输出级别 -->
+	<root level="debug">
+		<appender-ref ref="console_out" />
+	</root>
+</configuration> 
