@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 描述数据库表，name:表名，xlsDataName:当前表对应的数据文件（非必填） -->
+<!-- 描述数据库表，name:表名，xlsDataName:当前表对应的数据文件（非必填，文件须为.xls） -->
 <table name="" xlsDataName="">
 	<!-- 描述数据库列，name:数据库字段名，defValue:字段默认值（非必填） -->
 	<column name="" defValue=""></column>
