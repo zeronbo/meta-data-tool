@@ -14,31 +14,33 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 读取配置文件类
+ * 
  * @author Zero
- *
+ * 
  */
 public class Config {
 
 	private static Config config = new Config();
 	private static final Logger L = LoggerFactory.getLogger(Config.class);
 
-	//数据库Driver
+	// 数据库Driver
 	private static String dbConnectionDriver;
-	//数据库连接
+	// 数据库连接
 	private static String dbConnectionUrl;
-	//数据库用户名
+	// 数据库用户名
 	private static String dbConnectionUsername;
-	//数据库密码
+	// 数据库密码
 	private static String dbConnectionPassword;
-	//数据库表xml描述文件目录
+	// 数据库表xml描述文件目录
 	private static String xmlDirPath;
 
 	static {
 		Properties pro = new Properties();
-		String configPath = PathTool.join(PathTool.getUserDir(), new String[]{"config.properties"});
+		String configPath = PathTool.join(PathTool.getUserDir(),
+				new String[] { "config.properties" });
 		File file = new File(configPath);
 		InputStream in = null;
-		if(file.exists() && file.isFile()) {
+		if (file.exists() && file.isFile()) {
 			L.info("读取外部配置文件:" + file.getPath());
 			try {
 				in = new FileInputStream(file);
@@ -48,13 +50,13 @@ public class Config {
 		} else {
 			in = Config.class.getResourceAsStream("/config.properties");
 		}
-		
+
 		try {
 			pro.load(in);
 		} catch (IOException e) {
 			L.error("读取配置文件('config.properties')失败!");
 		}
-		
+
 		dbConnectionDriver = pro.getProperty("db.connection.driver_class");
 		dbConnectionUrl = pro.getProperty("db.connection.url");
 		dbConnectionUsername = pro.getProperty("db.connection.username");
@@ -64,6 +66,7 @@ public class Config {
 
 	/**
 	 * 数据库Driver
+	 * 
 	 * @return
 	 */
 	public String getDbConnectionDriver() {
@@ -72,6 +75,7 @@ public class Config {
 
 	/**
 	 * 数据库连接URL
+	 * 
 	 * @return
 	 */
 	public String getDbConnectionUrl() {
@@ -80,6 +84,7 @@ public class Config {
 
 	/**
 	 * 数据库用户名
+	 * 
 	 * @return
 	 */
 	public String getDbConnectionUsername() {
@@ -89,14 +94,16 @@ public class Config {
 	/**
 	 * 
 	 * 数据库密码
+	 * 
 	 * @return
 	 */
 	public String getDbConnectionPassword() {
 		return dbConnectionPassword;
 	}
-	
+
 	/**
 	 * 数据库表xml描述文件目录
+	 * 
 	 * @return
 	 */
 	public String getXmlDirPath() {
@@ -108,6 +115,6 @@ public class Config {
 	}
 
 	private Config() {
-		
+
 	}
 }
